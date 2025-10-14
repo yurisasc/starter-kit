@@ -118,7 +118,7 @@ pnpm db:schema
 
 # Or manually from apps/auth
 cd apps/auth
-npx @better-auth/cli generate --output ../../packages/database/src/schema/auth.ts
+pnpm auth:generate
 ```
 
 This creates/updates `packages/database/src/schema/auth.ts` with tables needed for authentication.
