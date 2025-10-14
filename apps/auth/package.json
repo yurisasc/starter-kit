@@ -10,7 +10,7 @@
 		"lint": "biome check .",
 		"lint:fix": "biome check --write .",
 		"typecheck": "tsc --noEmit",
-		"auth:generate": "npx @better-auth/cli generate --output ../../packages/database/src/schema/auth.ts --yes"
+		"auth:generate": "cli generate --config ./src/lib/auth.ts --output ../../packages/database/src/schema/auth.ts --yes"
 	},
 	"dependencies": {
 		"@hono/node-server": "^1.19.5",

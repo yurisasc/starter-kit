@@ -1,5 +1,4 @@
 import { serve } from "@hono/node-server";
-import { swaggerUI } from "@hono/swagger-ui";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { HTTPException } from "hono/http-exception";
