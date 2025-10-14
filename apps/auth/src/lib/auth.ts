@@ -16,7 +16,7 @@ import { db } from "./db";
  * - CSRF protection enabled (built-in)
  *
  * Schema Generation:
- * - Run `npx @better-auth/cli generate` to create/update database schema
+ * - Run `pnpm dlx @better-auth/cli generate` to create/update database schema
  * - Schema is generated to ../../packages/database/drizzle/schema.ts
  * - After generation, run migrations from the database package
  */
