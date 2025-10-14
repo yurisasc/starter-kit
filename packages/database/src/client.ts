@@ -16,18 +16,18 @@ import postgres from "postgres";
  * ```
  */
 export function createDbClient(connectionString: string) {
-	if (!connectionString) {
-		throw new Error(
-			"Database connection string is required. " +
-				"The calling application must validate and pass the DATABASE_URL.",
-		);
-	}
+  if (!connectionString) {
+    throw new Error(
+      "Database connection string is required. " +
+        "The calling application must validate and pass the DATABASE_URL.",
+    );
+  }
 
-	// Create postgres client
-	const client = postgres(connectionString);
+  // Create postgres client
+  const client = postgres(connectionString);
 
-	// Create and return Drizzle instance
-	return drizzle(client);
+  // Create and return Drizzle instance
+  return drizzle(client);
 }
 
 // Export type for the database instance

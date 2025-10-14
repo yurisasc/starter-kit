@@ -15,61 +15,61 @@ import { user } from "./auth";
 
 // Example: Blog posts table
 export const posts = pgTable("posts", {
-	id: text("id")
-		.primaryKey()
-		.$defaultFn(() => crypto.randomUUID()),
-	title: text("title").notNull(),
-	slug: text("slug").notNull().unique(),
-	content: text("content"),
-	published: boolean("published").default(false).notNull(),
+  id: text("id")
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
+  title: text("title").notNull(),
+  slug: text("slug").notNull().unique(),
+  content: text("content"),
+  published: boolean("published").default(false).notNull(),
 
-	// Reference to auth user table
-	authorId: text("author_id")
-		.notNull()
-		.references(() => user.id, { onDelete: "cascade" }),
+  // Reference to auth user table
+  authorId: text("author_id")
+    .notNull()
+    .references(() => user.id, { onDelete: "cascade" }),
 
-	createdAt: timestamp("created_at", { mode: "date" }).defaultNow().notNull(),
-	updatedAt: timestamp("updated_at", { mode: "date" })
-		.defaultNow()
-		.$onUpdate(() => new Date())
-		.notNull(),
+  createdAt: timestamp("created_at", { mode: "date" }).defaultNow().notNull(),
+  updatedAt: timestamp("updated_at", { mode: "date" })
+    .defaultNow()
+    .$onUpdate(() => new Date())
+    .notNull(),
 });
 
 // Example: Comments table
 export const comments = pgTable("comments", {
-	id: text("id")
-		.primaryKey()
-		.$defaultFn(() => crypto.randomUUID()),
-	content: text("content").notNull(),
+  id: text("id")
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
+  content: text("content").notNull(),
 
-	// Reference to posts table
-	postId: text("post_id")
-		.notNull()
-		.references(() => posts.id, { onDelete: "cascade" }),
+  // Reference to posts table
+  postId: text("post_id")
+    .notNull()
+    .references(() => posts.id, { onDelete: "cascade" }),
 
-	// Reference to auth user table
-	authorId: text("author_id")
-		.notNull()
-		.references(() => user.id, { onDelete: "cascade" }),
+  // Reference to auth user table
+  authorId: text("author_id")
+    .notNull()
+    .references(() => user.id, { onDelete: "cascade" }),
 
-	createdAt: timestamp("created_at", { mode: "date" }).defaultNow().notNull(),
+  createdAt: timestamp("created_at", { mode: "date" }).defaultNow().notNull(),
 });
 
 // Example: Post likes (many-to-many relationship)
 export const postLikes = pgTable("post_likes", {
-	id: text("id")
-		.primaryKey()
-		.$defaultFn(() => crypto.randomUUID()),
+  id: text("id")
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
 
-	postId: text("post_id")
-		.notNull()
-		.references(() => posts.id, { onDelete: "cascade" }),
+  postId: text("post_id")
+    .notNull()
+    .references(() => posts.id, { onDelete: "cascade" }),
 
-	userId: text("user_id")
-		.notNull()
-		.references(() => user.id, { onDelete: "cascade" }),
+  userId: text("user_id")
+    .notNull()
+    .references(() => user.id, { onDelete: "cascade" }),
 
-	createdAt: timestamp("created_at", { mode: "date" }).defaultNow().notNull(),
+  createdAt: timestamp("created_at", { mode: "date" }).defaultNow().notNull(),
 });
 
 /**
