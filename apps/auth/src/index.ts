@@ -7,7 +7,6 @@ import { logger } from "hono/logger";
 import { AUTH_API_BASE_PATH } from "./config/api";
 import { env } from "./env";
 import { auth } from "./lib/auth";
-import { authApi } from "./routes/auth";
 
 /**
  * Auth Server - Hono Application
@@ -35,39 +34,6 @@ app.use(
 		allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
 	}),
 );
-
-// Health check endpoint
-app.get("/health", (c) => {
-	return c.json({
-		status: "ok",
-		timestamp: new Date().toISOString(),
-		environment: env.NODE_ENV,
-	});
-});
-
-// OpenAPI documentation for auth API
-authApi.doc("/doc", {
-	openapi: "3.0.0",
-	info: {
-		title: "Auth API",
-		version: "1.0.0",
-		description:
-			"Authentication endpoints backed by Better Auth. Documented subset with zod-openapi.",
-	},
-	servers: [
-		{
-			url: AUTH_API_BASE_PATH,
-			description: "Auth API v1",
-		},
-	],
-	tags: [{ name: "auth", description: "Authentication endpoints" }],
-});
-
-// Auth API v1 (documented subset with zod-openapi)
-app.route(AUTH_API_BASE_PATH, authApi);
-
-// Swagger UI for Auth API docs at /docs
-app.get("/docs", swaggerUI({ url: `${AUTH_API_BASE_PATH}/doc` }));
 
 // Fallback: forward any other /api/auth/v1/* routes to Better Auth handler
 app.all(`${AUTH_API_BASE_PATH}/*`, (c) => auth.handler(c.req.raw));
