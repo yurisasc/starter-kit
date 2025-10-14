@@ -24,14 +24,14 @@ export const env = createEnv({
    */
   server: {
     // Database
-    DATABASE_URL: z.string().url().describe("PostgreSQL connection string"),
+    DATABASE_URL: z.url().describe("PostgreSQL connection string"),
 
     // Better Auth
     BETTER_AUTH_SECRET: z
       .string()
       .min(32)
       .describe("Secret key for better-auth (min 32 characters)"),
-    BETTER_AUTH_URL: z.string().url().describe("Base URL where auth server is accessible"),
+    BETTER_AUTH_URL: z.url().describe("Base URL where auth server is accessible"),
 
     // Server
     PORT: z.coerce.number().positive().default(3000).describe("Server port"),
