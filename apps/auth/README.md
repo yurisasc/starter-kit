@@ -116,7 +116,7 @@ curl http://localhost:3000/health
 
 ### API Documentation
 
-**Swagger UI**: `http://localhost:3001/docs`
+**Swagger UI**: `http://localhost:3001/api/auth/v1/reference`
 
 Interactive API documentation with request/response examples.
 
