@@ -36,7 +36,7 @@ Full-stack monorepo with authentication, database, and API documentation.
    ```
    This starts:
    - Auth server at `http://localhost:3001`
-   - Swagger UI at `http://localhost:3001/docs`
+   - Swagger UI at `http://localhost:3001/api/auth/v1/reference`
    - Drizzle Studio at `https://local.drizzle.studio`
 
 ## Common Commands
@@ -110,7 +110,7 @@ starter-kit/
   - Email/password authentication
   - Session management
   - OpenAPI documentation
-  - Swagger UI at `/docs`
+  - Swagger UI at `/api/auth/v1/reference`
   - Type-safe database queries
 - **Port**: 3001
 
