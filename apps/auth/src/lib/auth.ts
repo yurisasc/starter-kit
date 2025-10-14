@@ -1,6 +1,7 @@
 import * as schema from "@repo/database/schema";
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
+import { jwt, openAPI } from "better-auth/plugins";
 import { AUTH_API_BASE_PATH } from "../config/api";
 import { env } from "../env";
 import { db } from "./db";
@@ -19,7 +20,7 @@ import { db } from "./db";
  * - Schema is generated to ../../packages/database/drizzle/schema.ts
  * - After generation, run migrations from the database package
  */
-export const auth = betterAuth({
+export const auth: ReturnType<typeof betterAuth> = betterAuth({
 	/**
 	 * Database configuration
 	 * Uses the Drizzle adapter with our database client
@@ -108,7 +109,30 @@ export const auth = betterAuth({
 	 *
 	 * Plugin tables will be automatically added to the schema and migrated.
 	 */
+	plugins: [
+		openAPI(),
+		/**
+		 * JWT plugin for issuing access tokens to backend services
+		 * Exposes /api/auth/v1/token and /api/auth/v1/jwks endpoints
+		 */
+		jwt({
+			jwt: {
+				/**
+				 * Define minimal JWT payload (id, email only)
+				 */
+				definePayload: ({ user }) => ({
+					id: user.id,
+					email: user.email,
+				}),
+				/**
+				 * Short-lived tokens: 15 minutes per spec
+				 */
+				expirationTime: "15m",
+			},
+		}),
+	],
 });
 
 // Export types for use in the application
-export type Auth = typeof auth;
+// Explicit type to avoid jose dependency leaking into the type signature
+export type Auth = ReturnType<typeof betterAuth>;
