@@ -116,22 +116,22 @@ curl http://localhost:3000/health
 
 ### API Documentation
 
-**Swagger UI**: `http://localhost:3001/api/auth/v1/reference`
+**Swagger UI**: `http://localhost:3001/api/v1/auth/reference`
 
 Interactive API documentation with request/response examples.
 
 ### Authentication Endpoints
 
-All auth endpoints are mounted under `/api/auth/v1/**` and handled by Better Auth.
+All auth endpoints are mounted under `/api/v1/auth/**` and handled by Better Auth.
 
 #### Sign Up
 
-**POST** `/api/auth/v1/sign-up/email`
+**POST** `/api/v1/auth/sign-up/email`
 
 Register a new user with email and password.
 
 ```bash
-curl -X POST http://localhost:3001/api/auth/v1/sign-up/email \
+curl -X POST http://localhost:3001/api/v1/auth/sign-up/email \
   -H "Content-Type: application/json" \
   -d '{
     "email": "user@example.com",
@@ -159,12 +159,12 @@ curl -X POST http://localhost:3001/api/auth/v1/sign-up/email \
 
 #### Sign In
 
-**POST** `/api/auth/v1/sign-in/email`
+**POST** `/api/v1/auth/sign-in/email`
 
 Authenticate with email and password.
 
 ```bash
-curl -X POST http://localhost:3001/api/auth/v1/sign-in/email \
+curl -X POST http://localhost:3001/api/v1/auth/sign-in/email \
   -H "Content-Type: application/json" \
   -d '{
     "email": "user@example.com",
@@ -191,12 +191,12 @@ Sets a session cookie: `better-auth.session_token`
 
 #### Get Session
 
-**GET** `/api/auth/v1/get-session`
+**GET** `/api/v1/auth/get-session`
 
 Get the current authenticated user's session.
 
 ```bash
-curl http://localhost:3001/api/auth/v1/get-session \
+curl http://localhost:3001/api/v1/auth/get-session \
   -H "Cookie: better-auth.session_token=..."
 ```
 
@@ -225,12 +225,12 @@ curl http://localhost:3001/api/auth/v1/get-session \
 
 #### Sign Out
 
-**POST** `/api/auth/v1/sign-out`
+**POST** `/api/v1/auth/sign-out`
 
 Invalidate the current session.
 
 ```bash
-curl -X POST http://localhost:3001/api/auth/v1/sign-out \
+curl -X POST http://localhost:3001/api/v1/auth/sign-out \
   -H "Cookie: better-auth.session_token=..."
 ```
 
@@ -345,22 +345,22 @@ await db
 
 ```bash
 # 1. Sign up a new user
-SIGNUP_RESPONSE=$(curl -X POST http://localhost:3001/api/auth/v1/sign-up/email \
+SIGNUP_RESPONSE=$(curl -X POST http://localhost:3001/api/v1/auth/sign-up/email \
   -H "Content-Type: application/json" \
   -d '{"email":"test@example.com","password":"Test123!","name":"Test User"}' \
   -c cookies.txt)
 
 # 2. Sign in (saves session cookie)
-curl -X POST http://localhost:3001/api/auth/v1/sign-in/email \
+curl -X POST http://localhost:3001/api/v1/auth/sign-in/email \
   -H "Content-Type: application/json" \
   -d '{"email":"test@example.com","password":"Test123!"}' \
   -c cookies.txt
 
 # 3. Get session (uses saved cookie)
-curl http://localhost:3001/api/auth/v1/get-session -b cookies.txt
+curl http://localhost:3001/api/v1/auth/get-session -b cookies.txt
 
 # 4. Sign out
-curl -X POST http://localhost:3001/api/auth/v1/sign-out -b cookies.txt
+curl -X POST http://localhost:3001/api/v1/auth/sign-out -b cookies.txt
 ```
 
 ### View Database with Drizzle Studio

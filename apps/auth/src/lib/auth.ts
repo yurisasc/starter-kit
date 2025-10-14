@@ -113,7 +113,7 @@ export const auth: ReturnType<typeof betterAuth> = betterAuth({
 		openAPI(),
 		/**
 		 * JWT plugin for issuing access tokens to backend services
-		 * Exposes /api/auth/v1/token and /api/auth/v1/jwks endpoints
+		 * Exposes /api/v1/auth/token and /api/v1/auth/jwks endpoints
 		 */
 		jwt({
 			jwt: {

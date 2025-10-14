@@ -35,7 +35,7 @@ app.use(
 	}),
 );
 
-// Fallback: forward any other /api/auth/v1/* routes to Better Auth handler
+// Fallback: forward any other /api/v1/auth/* routes to Better Auth handler
 app.all(`${AUTH_API_BASE_PATH}/*`, (c) => auth.handler(c.req.raw));
 
 // 404 handler
