@@ -1,0 +1,21 @@
+{
+  "root": false,
+  "extends": ["@repo/biome-config"],
+  "files": {
+    "includes": [
+      "**",
+      "!dist",
+      "!**/dist",
+      "!.nitro",
+      "!**/.nitro",
+      "!.output",
+      "!**/.output",
+      "!node_modules",
+      "!**/node_modules",
+      "!*.gen.ts",
+      "!**/*.gen.ts",
+      "!*.generated.ts",
+      "!**/*.generated.ts"
+    ]
+  }
+}
