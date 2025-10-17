@@ -1,5 +1,34 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { PROJECT_NAME } from "@/constants";
+
+export const metadata: Metadata = {
+  title: PROJECT_NAME,
+  description:
+    "A comprehensive, full-stack monorepo starter kit for building modern applications. Start building production-ready applications faster with everything you need: authentication, database integration, and developer-friendly tooling.",
+  keywords: [
+    "starter kit",
+    "monorepo",
+    "TypeScript",
+    "Next.js",
+    "authentication",
+    "database",
+    "full-stack",
+  ],
+  openGraph: {
+    title: PROJECT_NAME,
+    description:
+      "A comprehensive, full-stack monorepo starter kit for building modern applications",
+    type: "website",
+    siteName: PROJECT_NAME,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: PROJECT_NAME,
+    description:
+      "A comprehensive, full-stack monorepo starter kit for building modern applications",
+  },
+};
 
 export default function Home() {
   return (
