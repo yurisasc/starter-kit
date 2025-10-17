@@ -9,8 +9,8 @@ const config: NextConfig = {
   async rewrites() {
     return [
       {
-        source: "/llms.mdx/:slug*",
-        destination: "/llms.mdx/:slug*",
+        source: "/docs/:path*.mdx",
+        destination: "/llms.mdx/:path*",
       },
     ];
   },
