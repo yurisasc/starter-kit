@@ -16,17 +16,22 @@ export const metadata: Metadata = {
     "full-stack",
   ],
   openGraph: {
-    title: PROJECT_NAME,
-    description:
-      "A comprehensive, full-stack monorepo starter kit for building modern applications",
-    type: "website",
-    siteName: PROJECT_NAME,
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
   },
   twitter: {
-    card: "summary_large_image",
-    title: PROJECT_NAME,
-    description:
-      "A comprehensive, full-stack monorepo starter kit for building modern applications",
+    images: [
+      {
+        url: "/twitter-image.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
   },
 };
 
