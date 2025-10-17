@@ -93,4 +93,28 @@ authentication logic.
     linkStyle 8 stroke-width:0px
 `}/>
 
-## Auth Server Responsibilities
+## Replacing the Auth Server with Managed Services
+
+Due to the decoupled architecture, you can easily replace the self-hosted Auth Server with a managed authentication service like Clerk, Auth0, or Firebase Auth.
+
+### Steps to Replace
+
+1. Choose a managed auth provider that supports JWT issuance and provides a JWKS endpoint.
+2. Configure your Resource Servers to use the managed provider's JWKS endpoint instead of the local Auth Server's.
+3. Update client applications to authenticate directly with the managed service.
+4. Optionally, remove the `apps/auth` directory from your project.
+
+### Configuration Changes
+
+For each Resource Server (e.g., `apps/api`, `apps/mcp`):
+
+- Update the JWKS URL in your JWT validation middleware to point to the managed service's JWKS endpoint.
+- Ensure the JWT claims match what your application expects.
+
+### Example Providers
+
+- **Clerk**: JWKS endpoint available at `https://your-domain.clerk.accounts.dev/.well-known/jwks.json`
+- **Auth0**: JWKS endpoint at `https://your-domain.auth0.com/.well-known/jwks.json`
+- **Firebase**: Use Firebase Admin SDK for verification, or extract JWKS from their endpoints.
+
+This allows you to leverage managed services while keeping the Resource Servers unchanged.
