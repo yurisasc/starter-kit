@@ -37,6 +37,10 @@ const ENV_FILES = [
     target: "apps/mcp/.env",
   },
   {
+    source: "apps/docs/.env.example",
+    target: "apps/docs/.env",
+  },
+  {
     source: "packages/database/.env.example",
     target: "packages/database/.env",
   },

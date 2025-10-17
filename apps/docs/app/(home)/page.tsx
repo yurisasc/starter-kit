@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PROJECT_NAME } from "@/constants";
+import { env } from "@/lib/env";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(env.NEXT_PUBLIC_SITE_URL),
   title: PROJECT_NAME,
   description:
     "A comprehensive, full-stack monorepo starter kit for building modern applications. Start building production-ready applications faster with everything you need: authentication, database integration, and developer-friendly tooling.",
