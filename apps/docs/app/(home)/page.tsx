@@ -1,15 +1,9 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { HomeLayout } from "fumadocs-ui/layouts/home";
+import Link from "next/link";
 import { PROJECT_NAME } from "@/constants";
-import { baseOptions } from "@/lib/layout.shared";
 
-export const Route = createFileRoute("/")({
-  component: Home,
-});
-
-function Home() {
+export default function Home() {
   return (
-    <HomeLayout {...baseOptions()} className="relative overflow-hidden">
+    <>
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-fd-primary/5 via-fd-background to-fd-primary/5" />
 
@@ -56,7 +50,6 @@ function Home() {
             authentication, database integration, and developer-friendly tooling.
           </p>
         </div>
-
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 w-full animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500">
           <FeatureCard
             icon="🔒"
@@ -77,10 +70,7 @@ function Home() {
 
         <div className="flex flex-col sm:flex-row gap-3 mt-8 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-700">
           <Link
-            to="/docs/$"
-            params={{
-              _splat: "",
-            }}
+            href="/docs"
             className="group relative px-6 py-3 rounded-lg bg-fd-primary text-fd-primary-foreground font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
           >
             <span className="relative z-10">Get Started</span>
@@ -112,7 +102,7 @@ function Home() {
           ))}
         </div>
       </div>
-    </HomeLayout>
+    </>
   );
 }
 

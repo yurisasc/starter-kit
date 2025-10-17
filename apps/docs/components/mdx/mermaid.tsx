@@ -38,8 +38,14 @@ function MermaidContent({ chart }: { chart: string }) {
           startOnLoad: false,
           securityLevel: "loose",
           fontFamily: "inherit",
-          themeCSS: "margin: 1.5rem auto 0;",
+          themeCSS: `
+            margin: 1.5rem auto 0;
+            .labelBkg { background-color: transparent !important; }
+          `,
           theme: resolvedTheme === "dark" ? "dark" : "default",
+          themeVariables: {
+            edgeLabelBackground: resolvedTheme === "dark" ? "#1a1a1a" : "#d4d4d4",
+          },
         });
         const { svg } = await mermaid.render(id, chart.replaceAll("\\n", "\n"));
         return svg;
