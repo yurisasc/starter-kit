@@ -18,8 +18,7 @@ The Auth Server employs a hybrid approach to support both traditional web applic
 
 This flow is illustrated below:
 
-```mermaid
-graph TD
+<Mermaid chart={`graph TD
     subgraph "Clients"
         Client[Client Applications<br>Web & Mobile]
     end
@@ -36,7 +35,7 @@ graph TD
     Client -- "2. Exchange <b>Session</b> for<br><b>Short-Lived Access Token (JWT)</b>" --> Auth
     Client -- "3. Access protected resources with<br><b>Access Token (JWT)</b>" --> Resources
     Resources -.->|4. Verify <b>JWT</b> using<br><b>JWKS</b>| Auth
-```
+`}/>
 
 **Flow Description:**
 

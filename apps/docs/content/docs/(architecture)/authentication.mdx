@@ -46,8 +46,7 @@ Communication between the Auth Server and Resource Servers is stateless and secu
 
 This decoupled design enables easy scaling, independent deployments, and enhanced security by isolating authentication logic.
 
-```mermaid
-graph TD
+<Mermaid chart={`graph TD
     subgraph "Auth Server (apps/auth)"
         Auth[Auth Server]
     end
@@ -79,6 +78,6 @@ graph TD
     linkStyle 6 stroke-width:0px
     linkStyle 7 stroke-width:0px
     linkStyle 8 stroke-width:0px
-```
+`}/>
 
 ## Auth Server Responsibilities

@@ -1,23 +1,28 @@
-node_modules
-package-lock.json
-yarn.lock
+# deps
+/node_modules
 
+# generated content
+.contentlayer
+.content-collections
+.source
+
+# test & build
+/coverage
+/.next/
+/out/
+/build
+*.tsbuildinfo
+
+# misc
 .DS_Store
-.cache
-.env
-.vercel
-.output
-.nitro
-/build/
-/api/
-/server/build
-/public/build# Sentry Config File
-.env.sentry-build-plugin
-/test-results/
-/playwright-report/
-/blob-report/
-/playwright/.cache/
-.tanstack
+*.pem
+/.pnp
+.pnp.js
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-src/routeTree.gen.ts
-source.generated.ts
+# others
+.env*.local
+.vercel
+next-env.d.ts
