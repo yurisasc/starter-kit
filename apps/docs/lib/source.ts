@@ -9,12 +9,10 @@ export const source = loader({
   plugins: [lucideIconsPlugin()],
 });
 
-export function getPageImage(page: InferPageType<typeof source>) {
-  const segments = [...page.slugs, "image.png"];
-
+export function getPageImage(_page: InferPageType<typeof source>) {
   return {
-    segments,
-    url: `/og/docs/${segments.join("/")}`,
+    segments: ["og_image.png"],
+    url: "/og_image.png",
   };
 }
 
