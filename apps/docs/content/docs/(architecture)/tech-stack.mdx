@@ -22,6 +22,15 @@ and maintainability.
 
 **Usage**: Authentication and session management.
 
+<Callout type="tip">
+**Alternatives**: Due to the [decoupled architecture](/authentication#architecture-decoupled-auth-server), 
+the Auth Server can be replaced with managed auth services like Clerk, Auth0, or Firebase Auth, which 
+provide JWKS endpoints for JWT validation.
+
+See [Authentication](authentication#replacing-the-auth-server-with-managed-services) for details on 
+replacing the Auth Server.
+</Callout>
+
 ## Backend Frameworks
 
 ### Hono
@@ -33,6 +42,13 @@ and maintainability.
 - Minimalist API that's easy to learn and extend
 
 **Usage**: Framework for the Auth and API servers.
+
+<Callout type="info">
+**Framework Flexibility**: Due to the [decoupled architecture](/authentication#architecture-decoupled-auth-server), 
+resource servers can use any framework (e.g., NestJS, FastAPI, Gin, Rails), as long as they validate JWTs via JWKS. 
+Note that non-JS frameworks may not work with Turborepo and Drizzle ORM is JS-based, so other languages connect 
+directly to PostgreSQL using their own database libraries.
+</Callout>
 
 ### FastMCP
 
