@@ -1,4 +1,4 @@
 {
   "title": "Core Concepts",
-  "pages": ["monorepo", "code-quality", "db-schema"]
+  "pages": ["monorepo", "code-quality"]
 }
