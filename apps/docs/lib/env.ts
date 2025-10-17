@@ -16,6 +16,10 @@ export const env = createEnv({
       .url()
       .default("http://localhost:3000")
       .describe("Base URL for the docs site"),
+    NEXT_PUBLIC_GITHUB_REPO_URL: z
+      .string()
+      .default("https://github.com/yurisasc/starter-kit")
+      .describe("GitHub repository URL for the project"),
   },
   server: {},
   clientPrefix: "NEXT_PUBLIC_",

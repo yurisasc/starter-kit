@@ -1,8 +1,10 @@
 ---
 title: Quick Start
 icon: Rocket
-description: Step-by-step guide to set up and run the starter kit on your local machine
+description: Setup and run guide for the starter kit.
 ---
+
+## Overview
 
 This guide will walk you through the process of setting up the starter kit on your local machine.
 
@@ -24,7 +26,8 @@ pnpm install
 
 ## 2. Environment Setup
 
-The project uses `.env` files for managing environment variables. Instead of manually creating each file, you can use our automated setup script:
+The project uses `.env` files for managing environment variables. Instead of manually creating each 
+file, you can use our automated setup script:
 
 ```bash
 pnpm setup:env
@@ -50,7 +53,8 @@ cp packages/database/.env.example packages/database/.env
 openssl rand -base64 32
 ```
 
-Then replace `your-secret-key-minimum-32-characters-long-change-this-in-production` in `apps/auth/.env` with the generated secret.
+Then replace `your-secret-key-minimum-32-characters-long-change-this-in-production` in `apps/auth/.env` 
+with the generated secret.
 
 ## 3. Start the Database
 
