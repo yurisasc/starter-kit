@@ -67,8 +67,8 @@ export default function Home() {
           }}
         />
 
-        <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-fd-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/3 right-1/4 w-[300px] h-[300px] bg-fd-primary/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] max-w-[50vw] max-h-[50vw] bg-fd-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/3 right-1/4 w-[300px] h-[300px] max-w-[40vw] max-h-[40vw] bg-fd-primary/5 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10 flex flex-col items-center justify-center px-4 py-12 text-center max-w-6xl mx-auto">
